@@ -1,5 +1,5 @@
 #Processed by Id
-        #    using base file:///home/jdroo/github.com/josd/eye/reasoning/glass/.run-1597275539.386173p10528
+        #    using base file:///home/jdroo/github.com/josd/eye/reasoning/glass/.run-1597610120.889806p7989
              @prefix : <http://example.org/try#> .
     @prefix log: <http://www.w3.org/2000/10/swap/log#> .
     @prefix n3: <http://www.w3.org/2004/06/rei#> .
@@ -64,9 +64,9 @@
                  a pr:Inference;
                  pr:binding  [
                      pr:boundTo  [
-                         n3:uri "http://example.org/try#s" ];
+                         n3:uri "http://example.org/try#e" ];
                      pr:variable  [
-                         n3:nodeId "http://example.org/try#S" ] ],
+                         n3:nodeId "http://example.org/try#E" ] ],
                          [
                      pr:boundTo run:_g5;
                      pr:variable  [
@@ -75,15 +75,18 @@
                  [
                          a pr:Fact;
                          pr:gives {{
+                            :d     :e :f .
                             :r     :s :t .
                             
-                            }     log:equalTo {:r     :s :t .
+                            }     log:equalTo {:d     :e :f .
+                            :r     :s :t .
                             } .
                         } ]
                  [
                          a pr:Extraction;
                          pr:because run:_g4;
                          pr:gives {{
+                            :d     :e :f .
                             :r     :s :t .
                             
                             }     :p :o .
@@ -91,14 +94,15 @@
                  pr:rule  [
                      a pr:Extraction;
                      pr:because run:_g1;
-                     pr:gives { @forAll :S,
+                     pr:gives { @forAll :E,
                                 testQ:G .
                     {
                         testQ:G     :p :o;
-                             log:equalTo {:r     :S :t .
+                             log:equalTo {:d     :E :f .
+                            :r     :s :t .
                             } .
                         
-                        }     => {:test4     a :PASS .
+                        }     => {:test6     a :PASS .
                         } .
                     } ] ],
                      [
@@ -154,14 +158,14 @@
                      pr:variable  [
                          n3:nodeId "http://example.org/try#C" ] ],
                          [
-                     pr:boundTo run:_g7;
-                     pr:variable  [
-                         n3:nodeId "http://josd.github.io/eye/reasoning/glass/testQ.n3#G" ] ],
-                         [
                      pr:boundTo  [
                          n3:uri "http://example.org/try#b" ];
                      pr:variable  [
-                         n3:nodeId "http://example.org/try#B" ] ];
+                         n3:nodeId "http://example.org/try#B" ] ],
+                         [
+                     pr:boundTo run:_g7;
+                     pr:variable  [
+                         n3:nodeId "http://josd.github.io/eye/reasoning/glass/testQ.n3#G" ] ];
                  pr:evidence  (
                  [
                          a pr:Fact;
@@ -197,9 +201,9 @@
                  a pr:Inference;
                  pr:binding  [
                      pr:boundTo  [
-                         n3:uri "http://example.org/try#e" ];
+                         n3:uri "http://example.org/try#s" ];
                      pr:variable  [
-                         n3:nodeId "http://example.org/try#E" ] ],
+                         n3:nodeId "http://example.org/try#S" ] ],
                          [
                      pr:boundTo run:_g8;
                      pr:variable  [
@@ -208,18 +212,15 @@
                  [
                          a pr:Fact;
                          pr:gives {{
-                            :d     :e :f .
                             :r     :s :t .
                             
-                            }     log:equalTo {:d     :e :f .
-                            :r     :s :t .
+                            }     log:equalTo {:r     :s :t .
                             } .
                         } ]
                  [
                          a pr:Extraction;
                          pr:because run:_g4;
                          pr:gives {{
-                            :d     :e :f .
                             :r     :s :t .
                             
                             }     :p :o .
@@ -227,15 +228,14 @@
                  pr:rule  [
                      a pr:Extraction;
                      pr:because run:_g1;
-                     pr:gives { @forAll :E,
+                     pr:gives { @forAll :S,
                                 testQ:G .
                     {
                         testQ:G     :p :o;
-                             log:equalTo {:d     :E :f .
-                            :r     :s :t .
+                             log:equalTo {:r     :S :t .
                             } .
                         
-                        }     => {:test6     a :PASS .
+                        }     => {:test4     a :PASS .
                         } .
                     } ] ];
              pr:gives {:test1     a :PASS .
@@ -288,11 +288,11 @@
     {
         :r     :s :t .
         
-        }     = run:_g5 .
+        }     = run:_g8 .
     {
         :d     :e :f .
         :r     :s :t .
         
-        }     = run:_g6,
-                run:_g8 .
+        }     = run:_g5,
+                run:_g6 .
     
